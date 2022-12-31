@@ -1,0 +1,69 @@
+@font-face {
+    font-family: 'is';
+    src        : local('is'), url(./fonts/is.ttf) format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'BYekanBold';
+    src        : url(./fonts/BYekan+Bold.ttf) format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'BYekan';
+    src        : local('BYekan'), url(./fonts/Yekan.ttf) format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'BYekanN';
+    src        : local('BYekanN'), url(./fonts/yekannumbers-regular.ttf) format('truetype');
+  }
+  
+  
+  @font-face {
+    font-family: 'yekanL';
+    src        : url(./fonts/YekanBakhFaNum-Light.eot);
+    src        : url(./fonts/YekanBakhFaNum-Light.eot?#iefix) format('embedded-opentype'),
+        url(./fonts/YekanBakhFaNum-Light.woff2) format('woff2'),
+        url(./fonts/YekanBakhFaNum-Light.woff) format('woff');
+    font-weight : bold;
+    font-style  : normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'yekan';
+    src        : url(./fonts/YekanBakhFaNum-Bold.eot);
+    src        : url(./fonts/YekanBakhFaNum-Bold.eot?#iefix) format('embedded-opentype'),
+        url(./fonts/YekanBakhFaNum-Bold.woff2) format('woff2'),
+        url(./fonts/YekanBakhFaNum-Bold.woff) format('woff');
+    font-weight : bold;
+    font-style  : normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'gothic';
+    src        : local('BYekanN'), url(./fonts/alternate-gothic-no2.ttf) format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'sign';
+    src        : local('BYekanN'), url(./fonts/photograph-signature.ttf) format('truetype');
+  }
+  
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: #000;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        to bottom,
+        rgba(126, 126, 126, 0.6) 0%,
+        rgba(0, 0, 0, 1) 100%
+      );
+      border-radius: 20px;
+  }

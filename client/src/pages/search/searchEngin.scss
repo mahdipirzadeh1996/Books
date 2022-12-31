@@ -1,0 +1,853 @@
+.searchContainer {
+  background-color: #dcf8c6;
+  color: #fff;
+  font-size: 100px;
+
+  .navbarSearch {
+    color: white;
+    font-size: 14px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+    background: linear-gradient(
+      to top,
+      rgb(7, 84, 75) 0%,
+      rgb(11, 140, 125) 100%
+    );
+    transition: all 1s ease;
+    box-shadow: 0 5px 10px #000;
+
+    &.scrolled {
+      background: var(--main-color);
+    }
+
+    .container {
+      padding: 0 50px;
+      display: flex;
+      align-items: center;
+      height: 60px;
+
+      .left {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        background-color: blue;
+        .back {
+          display: flex;
+          align-items: center;
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          color: white;
+          cursor: pointer;
+          z-index: 2;
+          font-family: yekan;
+          margin-top: 5px;
+          font-size: 23px;
+        }
+        .icon {
+          margin-right: 10px;
+          cursor: pointer;
+        }
+      }
+      .right {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        direction: rtl;
+
+        .img {
+          width: 100px;
+          height: 60px;
+          margin: 10px 0;
+        }
+
+        .searchBox {
+          background-color: #fff;
+          width: auto;
+          height: 30px;
+          border-radius: 30px;
+          margin-right: 30px;
+          display: flex;
+          justify-content: right;
+          align-items: center;
+          padding: 2.5px;
+          overflow: hidden;
+
+          -webkit-transition: width 1s, all 0.5s ease; /* Safari */
+          transition: max-width 1s, min-width 1s, all 0.5s ease;
+          -moz-transition: max-width 1s, min-width 1s, all 0.5s ease;
+          .icon {
+            color: black;
+          }
+          input {
+            color: rgb(121, 121, 121);
+            font-size: 15px;
+            text-align: right;
+            font-family: yekan;
+            border: none;
+            width: 500px;
+            margin-right: 10px;
+            &::placeholder {
+              /* Chrome, Firefox, Opera, Safari 10.1+ */
+              color: rgb(165, 165, 165);
+              opacity: 1; /* Firefox */
+            }
+
+            &:-ms-input-placeholder {
+              /* Internet Explorer 10-11 */
+              color: rgb(165, 165, 165);
+            }
+
+            &::-ms-input-placeholder {
+              /* Microsoft Edge */
+              color: rgb(165, 165, 165);
+            }
+            &:focus,
+            input:focus {
+              outline: none;
+            }
+          }
+
+          .searchBtn {
+            width: 90%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+            cursor: pointer;
+            color: white;
+            font-size: 15px;
+            outline: none;
+            margin-left: 5pxs;
+            &:focus,
+            .searchBtn:focus {
+              outline: none;
+            }
+          }
+        }
+
+        .searchBox-primary {
+          visibility: visible;
+          max-width: 300px;
+          min-width: 100px;
+        }
+
+        .searchBox-secondary {
+          max-width: 100px;
+          min-width: 100px;
+          text-align: left;
+        }
+
+        img {
+          height: 25px;
+        }
+      }
+    }
+  }
+
+  .searchPart {
+    display: flex;
+    margin-top: 60px;
+    width: 100%;
+    height: calc(100vh - 60px);
+
+    .searchContent {
+      flex: 1;
+      display: flex;
+      flex-direction: row-reverse;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: stretch;
+      align-content: flex-start;
+      overflow-y: auto;
+      background-color: rgb(220, 248, 198);
+      padding-top: 10px;
+
+      h1 {
+        margin-top: 100px;
+        text-align: center;
+      }
+
+      .btn {
+        -webkit-transition: width 1s; /* Safari */
+        transition: max-width 1s, min-width 1s;
+        width: auto;
+      }
+
+      .btn-primary {
+        max-width: 0px;
+        min-width: 0px;
+      }
+
+      .btn-secondary {
+        visibility: visible;
+        max-width: 60px;
+        min-width: 60px;
+        text-align: left;
+      }
+    }
+
+    .searchMenu {
+      display: flex;
+      flex: 0.23;
+      flex-direction: column;
+      padding-top: 5px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      direction: rtl;
+      background-color: #004844;
+
+      .switchContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 5px 0;
+        padding: 0 10px;
+        .react-switch-checkbox {
+          height: 0;
+          width: 0;
+          visibility: hidden;
+        }
+        .react-switch-label {
+          display: flex;
+          cursor: pointer;
+          width: 40px;
+          height: 20px;
+          background: grey;
+          border-radius: 100px;
+          position: relative;
+          transition: background-color 0.2s;
+          background-color: rgb(13, 255, 0);
+          margin-left: 70px;
+        }
+        .react-switch-label .react-switch-button {
+          content: "";
+          position: absolute;
+          top: 1px;
+          right: 1px;
+          width: 17px;
+          height: 17px;
+          border-radius: 45px;
+          transition: 0.2s;
+          background: #fff;
+          box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
+        }
+        .react-switch-checkbox:checked
+          + .react-switch-label
+          .react-switch-button {
+          transform: translateX(-110%);
+        }
+        .react-switch-checkbox:checked + .react-switch-label {
+          background-color: rgb(29, 220, 197);
+        }
+        .react-switch-label:active .react-switch-button {
+          width: 20px;
+        }
+      }
+
+      .filterContainer {
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        -webkit-transition: height 1s; /* Safari */
+        transition: max-height 1s, min-height 1s;
+        height: auto;
+        label {
+          text-align: center;
+          font-size: large;
+          color: rgb(181, 181, 181);
+          font-size: 23px;
+        }
+        .genreContainer {
+          width: 100%;
+          height: auto;
+        }
+        .inputRContainer {
+          padding: 0 25px;
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 15px;
+          direction: ltr;
+          .yearLabel {
+            margin-bottom: 10px;
+          }
+          img {
+            width: 30px;
+            height: 20px;
+            margin-bottom: 25px;
+            align-self: flex-end;
+          }
+        }
+      }
+      .filterContainer-primary {
+        max-height: 100%;
+        opacity: 1;
+        //transition: max-height 0.9s, opacity 3s, visibility 4s ease;
+      }
+      .filterContainer-secondary {
+        max-height: 0;
+        min-height: 0;
+        opacity: 0;
+      }
+
+      label {
+        text-align: center;
+        font-size: large;
+        color: rgb(181, 181, 181);
+        font-size: 23px;
+      }
+      p {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        font-family: yekanL;
+        margin: 0px 15px;
+        font-size: 20px;
+        .radio {
+          margin-right: 10px;
+          cursor: pointer;
+        }
+        .checkBox {
+          margin-right: 10px;
+          cursor: pointer;
+        }
+      }
+      .seperator {
+        background-color: rgb(78, 78, 78);
+        height: 2px;
+        margin: 10px 10px;
+      }
+    }
+  }
+}
+
+.searchContainerMob {
+  color: #fff;
+  font-size: 100px;
+  width: 100vw;
+
+  .navbarSearchMob {
+    display: flex;
+    color: white;
+    font-size: 14px;
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    top: 0;
+    z-index: 999;
+    background: linear-gradient(
+      to top,
+      rgb(7, 84, 75) 0%,
+      rgb(11, 140, 125) 100%
+    );
+    transition: all 1s ease;
+    box-shadow: 0 5px 10px #000;
+    direction: rtl;
+
+    .right {
+      flex: 0.3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 2rem;
+        height: 2rem;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 10;
+
+        &:focus {
+          outline: none;
+        }
+
+        div {
+          width: 1.7rem;
+          height: 0.25rem;
+          background: #fff;
+          border-radius: 10px;
+          transition: all 0.3s linear;
+          position: relative;
+          transform-origin: 1px;
+        }
+
+        .first {
+          transform: rotate(45deg);
+        }
+        .firstClose {
+          transform: rotate(0deg);
+        }
+
+        .second {
+          opacity: 0;
+          transform: translateX(20px);
+        }
+        .secondClose {
+          opacity: 1;
+          transform: translateX(0);
+        }
+
+        .third {
+          transform: rotate(-45deg);
+        }
+        .thirdClose {
+          transform: rotate(0);
+        }
+      }
+    }
+    .center {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .searchBox {
+        background-color: #fff;
+        width: auto;
+        height: 30px;
+        border-radius: 30px;
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        padding: 2.5px;
+        overflow: hidden;
+
+        -webkit-transition: width 1s, all 0.5s ease; /* Safari */
+        transition: max-width 1s, min-width 1s, all 0.5s ease;
+        -moz-transition: max-width 1s, min-width 1s, all 0.5s ease;
+        .icon {
+          color: black;
+        }
+        input {
+          color: rgb(121, 121, 121);
+          font-size: 15px;
+          text-align: right;
+          font-family: yekan;
+          border: none;
+          width: 150px;
+          margin-right: 10px;
+          &::placeholder {
+            /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: rgb(165, 165, 165);
+            opacity: 1; /* Firefox */
+          }
+
+          &:-ms-input-placeholder {
+            /* Internet Explorer 10-11 */
+            color: rgb(165, 165, 165);
+          }
+
+          &::-ms-input-placeholder {
+            /* Microsoft Edge */
+            color: rgb(165, 165, 165);
+          }
+          &:focus,
+          input:focus {
+            outline: none;
+          }
+        }
+
+        .searchBtn {
+          width: 90%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: transparent;
+          cursor: pointer;
+          color: white;
+          font-size: 15px;
+          outline: none;
+          margin-left: 5pxs;
+          &:focus,
+          .searchBtn:focus {
+            outline: none;
+          }
+        }
+      }
+
+      .searchBox-primary {
+        visibility: visible;
+        max-width: 300px;
+        min-width: 100px;
+      }
+
+      .searchBox-secondary {
+        max-width: 100px;
+        min-width: 100px;
+        text-align: left;
+      }
+    }
+    .left {
+      flex: 0.3;
+
+      .back {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        cursor: pointer;
+        .icon {
+          font-size: 30px;
+        }
+      }
+    }
+  }
+
+  .searchPartMob {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 60px);
+    margin-top: 60px;
+    background-color: #dcf8c6;
+    direction: rtl;
+    overflow: hidden;
+
+    .menuMob {
+      display: flex;
+      width: 60%;
+      position: fixed;
+      flex-direction: column;
+      height: 100vh;
+      background-color: #004844;
+      transform: translateX(0);
+      transition: transform 0.3s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      padding-top: 5px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      direction: rtl;
+
+      .switchContainer {
+        display: flex;
+        height: 50px;
+        .right {
+          flex: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .center {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .react-switch-checkbox {
+            height: 0;
+            width: 0;
+            visibility: hidden;
+          }
+          .react-switch-label {
+            display: flex;
+            cursor: pointer;
+            width: 40px;
+            height: 20px;
+            background: grey;
+            border-radius: 100px;
+            position: relative;
+            transition: background-color 0.2s;
+            background-color: rgb(13, 255, 0);
+          }
+          .react-switch-label .react-switch-button {
+            content: "";
+            position: absolute;
+            top: 1px;
+            right: 1px;
+            width: 17px;
+            height: 17px;
+            border-radius: 45px;
+            transition: 0.2s;
+            background: #fff;
+            box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
+          }
+          .react-switch-checkbox:checked
+            + .react-switch-label
+            .react-switch-button {
+            transform: translateX(-110%);
+          }
+          .react-switch-checkbox:checked + .react-switch-label {
+            background-color: rgb(29, 220, 197);
+          }
+          .react-switch-label:active .react-switch-button {
+            width: 20px;
+          }
+        }
+        .left {
+          flex: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      .filterContainer {
+        display: flex;
+        flex-direction: column;
+
+        -webkit-transition: height 1s; /* Safari */
+        transition: max-height 1s, min-height 1s;
+        height: auto;
+
+        label {
+          text-align: center;
+          font-size: large;
+          color: rgb(181, 181, 181);
+          font-size: 23px;
+        }
+        .genreContainer {
+          width: 100%;
+          height: auto;
+          background-color: rgb(21, 106, 109);
+        }
+        .inputRContainer {
+          padding: 0 25px;
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 15px;
+          direction: ltr;
+          height: 150px;
+          background-color: rgb(21, 106, 109);
+
+          .yearLabel {
+            margin-bottom: 10px;
+          }
+          img {
+            width: 30px;
+            height: 20px;
+            margin-bottom: 25px;
+            align-self: flex-end;
+          }
+        }
+      }
+
+      .filterContainer-primary {
+        max-height: 1000px;
+        opacity: 1;
+        //transition: max-height 0.9s, opacity 3s, visibility 4s ease;
+      }
+      .filterContainer-secondary {
+        max-height: 0;
+        min-height: 0;
+        opacity: 0;
+      }
+
+      label {
+        text-align: center;
+        font-size: large;
+        color: rgb(181, 181, 181);
+        font-size: 23px;
+      }
+      p {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        font-family: yekanL;
+        margin: 0px 15px;
+        font-size: 20px;
+        .radio {
+          margin-right: 10px;
+          cursor: pointer;
+        }
+        .checkBox {
+          margin-right: 10px;
+          cursor: pointer;
+        }
+      }
+      .seperator {
+        background-color: rgb(78, 78, 78);
+        height: 2px;
+        margin: 10px 10px;
+      }
+    }
+    .menuMob.menuMobClose {
+      transform: translateX(100%);
+    }
+
+    .searchContent {
+      flex: 1;
+      overflow-y: auto;
+      padding-top: 10px;
+      direction: rtl;
+      display: grid;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+
+      h1 {
+        margin-top: 100px;
+        text-align: center;
+      }
+
+      .btn {
+        -webkit-transition: width 1s; /* Safari */
+        transition: max-width 1s, min-width 1s;
+        width: auto;
+      }
+
+      .btn-primary {
+        max-width: 0px;
+        min-width: 0px;
+      }
+
+      .btn-secondary {
+        visibility: visible;
+        max-width: 60px;
+        min-width: 60px;
+        text-align: left;
+      }
+    }
+  }
+}
+.searchMenuMob {
+  display: flex;
+  width: 60%;
+  flex-direction: column;
+  padding-top: 5px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  direction: rtl;
+  background-color: #004844;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+
+  .switchContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+    padding: 0 10px;
+    .react-switch-checkbox {
+      height: 0;
+      width: 0;
+      visibility: hidden;
+    }
+    .react-switch-label {
+      display: flex;
+      cursor: pointer;
+      width: 40px;
+      height: 20px;
+      background: grey;
+      border-radius: 100px;
+      position: relative;
+      transition: background-color 0.2s;
+      background-color: rgb(13, 255, 0);
+      margin-left: 70px;
+    }
+    .react-switch-label .react-switch-button {
+      content: "";
+      position: absolute;
+      top: 1px;
+      right: 1px;
+      width: 17px;
+      height: 17px;
+      border-radius: 45px;
+      transition: 0.2s;
+      background: #fff;
+      box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
+    }
+    .react-switch-checkbox:checked + .react-switch-label .react-switch-button {
+      transform: translateX(-110%);
+    }
+    .react-switch-checkbox:checked + .react-switch-label {
+      background-color: rgb(29, 220, 197);
+    }
+    .react-switch-label:active .react-switch-button {
+      width: 20px;
+    }
+  }
+
+  .filterContainer {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    -webkit-transition: height 1s; /* Safari */
+    transition: max-height 1s, min-height 1s;
+    height: auto;
+    label {
+      text-align: center;
+      font-size: large;
+      color: rgb(181, 181, 181);
+      font-size: 23px;
+    }
+    .genreContainer {
+      width: 100%;
+      height: 200px;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+    .inputRContainer {
+      padding: 0 25px;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 15px;
+      direction: ltr;
+      .yearLabel {
+        margin-bottom: 10px;
+      }
+      img {
+        width: 30px;
+        height: 20px;
+        margin-bottom: 25px;
+        align-self: flex-end;
+      }
+    }
+  }
+  .filterContainer-primary {
+    max-height: 100%;
+    opacity: 1;
+    //transition: max-height 0.9s, opacity 3s, visibility 4s ease;
+  }
+  .filterContainer-secondary {
+    max-height: 0;
+    min-height: 0;
+    opacity: 0;
+  }
+
+  label {
+    text-align: center;
+    font-size: large;
+    color: rgb(181, 181, 181);
+    font-size: 23px;
+  }
+  p {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    font-family: yekanL;
+    margin: 0px 15px;
+    font-size: 20px;
+    .radio {
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .checkBox {
+      margin-right: 10px;
+      cursor: pointer;
+    }
+  }
+  .seperator {
+    background-color: rgb(78, 78, 78);
+    height: 2px;
+    margin: 10px 10px;
+  }
+}
+.searchMenuMob.searchMenuMobClose {
+  transform: translateX(100%);
+}

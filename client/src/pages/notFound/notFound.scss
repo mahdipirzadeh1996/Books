@@ -1,0 +1,16 @@
+.notFound {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: #dcf8c6;
+  flex-direction: column;
+
+  h1 {
+    font-size: 40px;
+  }
+  span {
+    font-size: 23px;
+  }
+}

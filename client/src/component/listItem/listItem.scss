@@ -1,0 +1,51 @@
+.listItem {
+  width: 170px;
+  height: 280px;
+  background-color: var(--main-color);
+  overflow: hidden;
+  color: white;
+  transition: width 1s;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  margin-right: 65px;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: 100%;
+    transition: height 1s;
+  }
+
+  .infoContainer {
+    display: flex;
+    transform-origin: 0 100%;
+    width: 170px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background: rgba(7, 94, 84, 0.7);
+    transition: backdrop-filter 1s, transform 0.1s;
+    transform: scaleX(0);
+    position: absolute;
+    backdrop-filter: blur(0px);
+  }
+
+  .infoContainer.hover {
+    transform: scaleX(1);
+    backdrop-filter: blur(6px);
+  }
+
+  .itemInfo {
+    display: none;
+  }
+
+  .loaderContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .loaderContainer.hide {
+    display: none;
+  }
+}

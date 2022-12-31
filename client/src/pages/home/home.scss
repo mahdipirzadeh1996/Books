@@ -1,0 +1,90 @@
+.home {
+  overflow: hidden;
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 2s, opacity 0.5s linear, height 1s;
+  display: flex;
+  flex-direction: column;
+  font-family: BYekanN;
+
+  .navContainer {
+    width: 100%;
+    height: 90vh;
+  }
+
+  .curve {
+    margin-top: 10px;
+    background: linear-gradient(
+      to top,
+      rgb(11, 140, 125) 0%,
+      rgb(7, 84, 75) 100%
+    );
+    background-color: rgb(7, 84, 75);
+    svg {
+      display: block;
+    }
+  }
+
+  .footerContainer {
+    display: flex;
+    height: 30vh;
+    direction: rtl;
+    background: linear-gradient(
+      to top,
+      rgb(7, 84, 75) 0%,
+      rgb(11, 140, 125) 100%
+    );
+
+    .right {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      direction: rtl;
+      flex-direction: column;
+    }
+
+    .seperate {
+      background-color: rgb(77, 65, 65);
+      width: 4px;
+      margin: 20px 0;
+    }
+
+    .left {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      direction: rtl;
+
+      h1 {
+        font-size: 60px;
+        color: white;
+        font-family: sign;
+        margin-left: 10px;
+      }
+
+      img {
+        width: 200px;
+        height: 160px;
+      }
+
+      .titleMob {
+        font-size: 18px;
+        color: white;
+        font-family: sign;
+        margin-left: 10px;        
+      }
+
+      .logoMob {
+        width: 100px;
+        height: 60px;
+      }
+    }
+  }
+}
+.home.homeClose {
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+}

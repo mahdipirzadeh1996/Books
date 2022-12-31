@@ -1,0 +1,103 @@
+.register {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 1) 100%
+    ),
+    url("../../images/authbg.jpg");
+  background-size: cover;
+  backdrop-filter: blur(10px);
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 2s, opacity 0.5s linear, height 0.5s;
+
+  .authForm {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(197, 221, 221, 0.5);
+    backdrop-filter: blur(20px);
+    width: 250px;
+    height: 300px;
+    border-radius: 10px;
+    padding: 50px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px 5px rgba(197, 221, 221, 0.7);
+    direction: rtl;
+
+    .titleContainer {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px 0;
+      font-size: 16px;
+      color: rgb(34, 34, 34);
+      display: flex;
+
+      h1 {
+        font-size: 20px;
+      }
+    }
+
+    .authInput {
+      width: 100%;
+      height: 30px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      padding: 5px;
+      border: none;
+      outline: none;
+      text-align: right;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+      background-color: white;
+    }
+
+    .passContainer {
+      display: flex;
+      padding: 0 5px;
+      width: 100%;
+      height: 40px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+      background-color: white;
+      
+      .passInput {
+        width: 100%;
+        height: 30px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        padding: 5px;
+        border: none;
+        outline: none;
+        text-align: right;
+      }
+    }
+
+    .authButton {
+      width: 70%;
+      height: 30px;
+      background-color: teal;
+      border: none;
+      color: white;
+      padding: 5px;
+      cursor: pointer;
+      border-radius: 5px;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-self: center;
+    }
+  }
+}
+.register.registerClose {
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+}

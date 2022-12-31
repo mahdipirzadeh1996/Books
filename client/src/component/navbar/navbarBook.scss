@@ -1,0 +1,52 @@
+.navbar {
+  color: white;
+  font-size: 14px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+  background: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.9) 80%);
+  transition: all 1s ease;
+
+  &.scrolled {
+    background: var(--main-color);
+  }
+
+  .container {
+    padding: 0 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 70px;
+
+    .left {
+      display: flex;
+      align-items: center;
+      .back {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color: white;
+        cursor: pointer;
+        z-index: 2;
+        font-family: yekan;
+        margin-top: 10px;
+      }
+      .icon {
+        margin-right: 10px;
+        cursor: pointer;
+      }
+    }
+    .right {
+      display: flex;
+      align-items: center;
+      img {
+        width: 100px;
+        height: 60px;
+        margin: 10px 0;
+      }
+    }
+  }
+}
